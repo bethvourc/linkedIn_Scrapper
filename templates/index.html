@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>LinkedIn Scraper</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
-    </head>
-    <body>
-        <div class="container">
-            <h1>LinkedIn Scraper</h1>
-            <form action="/scrape" method="post">
-                <label for="linkedin_url">LinkedIn URL:</label>
-                <input type="text" id="linkedin_url" name="linkedin_url" required>
-                <button type="submit">Scrape</button>
-            </form>
-        </div>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Scraper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>LinkedIn Scraper</h1>
+        <form action="/scrape" method="post" class="form">
+            <div class="inputGroup">
+                <input name="linkedin_url" type="text" required autocomplete="off" id="linkedin_url">
+                <label for="linkedin_url">LinkedIn URL</label>
+            </div>
+            <button class="Documents-btn" type="submit">
+                <p class="text">Scrape</p>
+            </button>
+        </form>
+    </div>
+</body>
 </html>

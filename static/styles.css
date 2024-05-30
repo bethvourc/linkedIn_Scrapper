@@ -1,19 +1,116 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
 }
+
 .container {
-    width: 50%;
-    margin: 0 auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
     text-align: center;
 }
-form {
-    margin-top: 20px;
+
+h1 {
+    margin-bottom: 2rem;
+    color: #333;
 }
-input {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-button {
-    padding: 10px 20px;
+
+.inputGroup {
+    position: relative;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.inputGroup input {
+    font-size: 1rem;
+    padding: 0.8em;
+    outline: none;
+    border: 2px solid rgb(200, 200, 200);
+    background-color: transparent;
+    border-radius: 20px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+.inputGroup label {
+    font-size: 1rem;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.8em;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: rgb(100, 100, 100);
+}
+
+.inputGroup input:focus + label,
+.inputGroup input:valid + label {
+    transform: translateY(-125%) scale(0.9);
+    margin: 0;
+    margin-left: 1.3em;
+    padding: 0.4em;
+    background-color: #fff;
+    color: rgb(150, 150, 200);
+}
+
+.inputGroup input:focus {
+    border-color: rgb(150, 150, 200);
+}
+
+.Documents-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    background-color: rgb(145, 145, 245);
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    gap: 10px;
+}
+
+.Documents-btn:hover {
+    background-color:  rgb(150, 150, 200);
+}
+
+.Documents-btn:active {
+    transform: scale(0.95);
+}
+
+
+.text {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.Documents-btn:hover .filePage {
+    transform: translateY(-5px);
+}
+
+.Documents-btn:hover .fileFront {
+    transform: rotateX(30deg);
 }
