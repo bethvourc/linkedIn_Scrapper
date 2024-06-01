@@ -10,7 +10,7 @@ def index():
 
 @app.route('/scrape', methods=['POST'])
 def scrape():
-    url = request.form['POST']
+    url = request.form['linkedin_url']
     data = scrape_linkedin_profile(url)
     df = pd.DataFrame(data)
     csv_file = 'output.csv'
