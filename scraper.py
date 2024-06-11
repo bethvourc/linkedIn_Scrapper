@@ -1,3 +1,4 @@
+from flask import Flask, request, jsonify
 import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -5,6 +6,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import time
+
+app = Flask(__name__)
 
 def scrape_linkedin_profile(url, username, password):
     # Setup Selenium WebDriver
@@ -57,3 +60,22 @@ def scrape_linkedin_profile(url, username, password):
     }
 
     return profile_data
+
+@app.route('/scrape', methods=['POST'])
+def scrape():
+    data = request.json
+    url = data.get('url')
+    username = data.get('username')
+    password = data.get('password')
+
+    if not url or not username or not password:
+        return jsonify({'error': 'Missing required parameters'}), 400
+
+    try:
+        profile_data = scrape_linkedin_profile(url, username, password)
+        return jsonify(profile_data)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+if __name__ == '__main__':
+    app.run(debug=True)
